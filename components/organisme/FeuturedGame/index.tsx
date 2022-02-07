@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useCallback, useEffect, useState } from "react";
 import GameItem from "../../moleculs/GameItem";
+import { getFeatureGame } from "../../../services/player";
+import { GameItemTypes } from "../../../services/data-types";
 
 export default function FeuturedGame() {
-  const [GameList, setGameList] = useState([]);
-  useEffect(async () => {
-    const res = await axios.get(
-      `https://topup-game.herokuapp.com/api/v1/players/landingpage`
-    );
-    console.log("data:", res);
-    setGameList(res.data.data);
+  const [gameList, setGameList] = useState([]);
+  console.log(gameList);
+
+  const getFeatureGameList = useCallback(async () => {
+    const data = await getFeatureGame();
+
+    setGameList(data);
+  }, [getFeatureGame]);
+
+  useEffect(() => {
+    getFeatureGameList();
   }, []);
+
+  const API_IMAGE = process.env.NEXT_PUBLIC_IMG;
 
   return (
     <section className="featured-game pt-50 pb-50">
@@ -21,36 +28,16 @@ export default function FeuturedGame() {
         </h2>
         <div
           className="d-flex flex-row flex-lg-wrap overflow-setting justify-content-lg-between gap-lg-3 gap-4"
-          // data-aos={"fade-up"}
+          data-aos="fade-up"
         >
-          {GameList.map((item) => (
+          {gameList.map((item: GameItemTypes) => (
             <GameItem
               key={item._id}
-              thumbnail={`https://topup-game.herokuapp.com/api/v1/uploads/${item.thumbnail}`}
+              thumbnail={`${API_IMAGE}/${item.thumbnail}`}
               title={item.name}
               category={item.category.name}
             />
           ))}
-          {/* <GameItem
-            thumbnail="Thumbnail-2"
-            title="Call of Duty: Modern"
-            category="Mobile"
-          />
-          <GameItem
-            thumbnail="Thumbnail-3"
-            title="Mobile Legends"
-            category="Mobile"
-          />
-          <GameItem
-            thumbnail="Thumbnail-4"
-            title="Clash of Clans"
-            category="Mobile"
-          />
-          <GameItem
-            thumbnail="Thumbnail-5"
-            title="Valorant"
-            category="Desktop"
-          /> */}
         </div>
       </div>
     </section>

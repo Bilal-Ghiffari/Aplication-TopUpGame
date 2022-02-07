@@ -8,7 +8,7 @@ export default function TransactionStep() {
           It’s Really That
           <br /> Easy to Win the Game
         </h2>
-        <div className="row gap-lg-0 gap-4">
+        <div className="row gap-lg-0 gap-4" data-aos="fade-up">
           <StepItem
             icon="step1"
             title="1. Start up"

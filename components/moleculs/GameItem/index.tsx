@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface GameItemProps {
   title: string;
   category: string;
@@ -11,18 +13,24 @@ export default function GameItem(props: GameItemProps) {
     <div className="featured-game-card position-relative">
       <a href="/details">
         <div className="blur-sharp">
-          <img
-            className="thumb"
-            src={`/images/${thumbnail}.png`}
+          <Image
+            className="thumbnail"
+            src={thumbnail}
             width={205}
             height={270}
-            alt=""
+            alt="thumnail"
+            layout="fixed"
           />
         </div>
         <div className="cover position-absolute bottom-0 m-32">
           <div className="d-flex flex-column h-100 justify-content-between text-decoration-none">
             <div className="game-icon mx-auto">
-              <img src="/icon/console.svg" width={54} height={36} alt="" />
+              <Image
+                src="/icon/console.svg"
+                width={54}
+                height={36}
+                alt="Icon"
+              />
             </div>
             <div>
               <p className="fw-semibold text-white text-xl m-0">{title}</p>

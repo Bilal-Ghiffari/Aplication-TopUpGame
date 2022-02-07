@@ -8,7 +8,7 @@ interface MenuProps {
 }
 
 export default function LinkMenu(props: Partial<MenuProps>) {
-  const { title, active, href = "/" } = props;
+  const { title, active, href = "" } = props;
   const classTitle = cx({
     "nav-link": true,
     active,

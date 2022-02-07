@@ -1,15 +1,14 @@
-import React from "react";
+import Image from "next/image";
 
 export default function Ilustrasion() {
   return (
     <div className="col-lg-6 col-12 d-lg-block d-none">
       <div className="d-flex justify-content-lg-end justify-content-center me-lg-5">
-        <div className="position-relative">
-          {/* data-aos={"zoom-in"} */}
+        <div className="position-relative" data-aos="zoom-in">
           <img src="/images/Header-1.png" className="img-fluid" alt="" />
           <div className="card left-card position-absolute border-0">
             <div className="d-flex align-items-center mb-16 gap-3">
-              <img
+              <Image
                 src="/images/Header-2.png"
                 width="40"
                 height="40"
@@ -26,11 +25,11 @@ export default function Ilustrasion() {
               </div>
             </div>
             <div className="d-flex gap-2">
-              <img src="/icon/star.svg" alt="next" width={24} height={22} />
-              <img src="/icon/star.svg" width={24} height={22} />
-              <img src="/icon/star.svg" width={24} height={22} />
-              <img src="/icon/star.svg" width={24} height={22} />
-              <img src="/icon/star.svg" width={24} height={22} />
+              <Image src="/icon/star.svg" alt="next" width={24} height={22} />
+              <Image src="/icon/star.svg" width={24} height={22} />
+              <Image src="/icon/star.svg" width={24} height={22} />
+              <Image src="/icon/star.svg" width={24} height={22} />
+              <Image src="/icon/star.svg" width={24} height={22} />
             </div>
           </div>
           <div className="card right-card position-absolute border-0">

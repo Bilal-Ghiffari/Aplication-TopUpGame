@@ -25,3 +25,34 @@ export default function checkOut() {
     </section>
   );
 }
+
+interface GetServerSideProps {
+  req: {
+    cookies: {
+      tkn: string;
+    };
+  };
+}
+
+export async function getServerSideProps({ req }: GetServerSideProps) {
+  const { tkn } = req.cookies;
+  if (!tkn) {
+    return {
+      redirect: {
+        destination: "/sign-in",
+        // permanent: false,
+      },
+    };
+  }
+
+  return {
+    // mempassing user ke page melalui props
+    props: {
+      user: {},
+    },
+  };
+
+  // kalau di server side kita ubah / format base 64 menjadi string token dengan memakai Buffer
+  //ASCII adalah set karakter pertama (standar pengkodean)
+  // const jwtToken = Buffer.from(tkn, "base64").toString("ascii")
+}

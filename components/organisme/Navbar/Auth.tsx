@@ -1,11 +1,39 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import jwt_decode from "jwt-decode";
+import Cookies from "js-cookie";
+import { JwtPayloadTypes } from "../../../services/data-types";
+import { useRouter } from "next/router";
 
-interface AuthProps {
-  isLogin?: boolean;
-}
+export default function Auth() {
+  const [isLogin, setIsLogin] = useState(false);
+  const [user, setUser] = useState({
+    avatar: "",
+  });
+  const router = useRouter();
 
-export default function Auth(props: Partial<AuthProps>) {
-  const { isLogin } = props;
+  useEffect(() => {
+    // cara membaca/read cookies yaitu dengan memakai get
+    const token = Cookies.get("tkn");
+    // jika user sudah login/mempunyai token
+    if (token) {
+      // Metode atob()mendekode string yang telah dikodekan oleh btoa()metode.
+      const jwtToken = atob(token);
+      const payload: JwtPayloadTypes = jwt_decode(jwtToken);
+      const userFromPayload = payload.player;
+
+      setIsLogin(true);
+      setUser(userFromPayload);
+    }
+  }, []);
+
+  // membuat Logout
+  const Logout = () => {
+    // remove cookies
+    Cookies.remove("tkn");
+    router.push("/");
+    setIsLogin(false);
+  };
 
   if (isLogin) {
     return (
@@ -21,7 +49,7 @@ export default function Auth(props: Partial<AuthProps>) {
             aria-expanded="false"
           >
             <img
-              src="/images/avatar-1.png"
+              src={user.avatar}
               className="rounded-circle"
               width="40"
               height="40"
@@ -52,10 +80,8 @@ export default function Auth(props: Partial<AuthProps>) {
                 </a>
               </Link>
             </li>
-            <li>
-              <Link href="/sign-in">
-                <a className="dropdown-item text-lg color-palette-2">Log Out</a>
-              </Link>
+            <li onClick={Logout}>
+              <a className="dropdown-item text-lg color-palette-2">Log Out</a>
             </li>
           </ul>
         </div>
