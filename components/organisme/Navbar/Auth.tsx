@@ -21,7 +21,8 @@ export default function Auth() {
       const jwtToken = atob(token);
       const payload: JwtPayloadTypes = jwt_decode(jwtToken);
       const userFromPayload = payload.player;
-
+      const IMG = process.env.NEXT_PUBLIC_IMG;
+      userFromPayload.avatar = `${IMG}/${userFromPayload.avatar}`;
       setIsLogin(true);
       setUser(userFromPayload);
     }

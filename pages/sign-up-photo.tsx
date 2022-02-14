@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 import { getGameCategory } from "../services/player";
 import Image from "next/image";
@@ -47,7 +46,7 @@ export default function SignUpPhoto() {
     data.append("email", form.email);
     data.append("name", form.name);
     data.append("password", form.password);
-    data.append("phoneNumber", "0857234776");
+    data.append("phoneNumber", form.phoneNumber);
     data.append("username", form.name);
     data.append("role", "user");
     data.append("status", "Y");
@@ -149,7 +148,6 @@ export default function SignUpPhoto() {
           </div>
         </form>
       </div>
-      <ToastContainer />
     </section>
   );
 }

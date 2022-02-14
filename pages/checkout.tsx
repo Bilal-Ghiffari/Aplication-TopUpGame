@@ -30,19 +30,28 @@ interface GetServerSideProps {
   req: {
     cookies: {
       tkn: string;
+      checktopup: string;
     };
   };
 }
 
 export async function getServerSideProps({ req }: GetServerSideProps) {
-  const { tkn } = req.cookies;
+  const { tkn, checktopup, checkItem } = req.cookies;
+
+  console.log(tkn);
   if (!tkn) {
     return {
       redirect: {
+        permanent: false,
         destination: "/sign-in",
-        // permanent: false,
       },
     };
+  } else {
+    if (!checktopup && !checkItem) {
+      return {
+        redirect: { destination: "/validationCheckout", permanent: false },
+      };
+    }
   }
 
   return {

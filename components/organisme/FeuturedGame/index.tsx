@@ -32,6 +32,7 @@ export default function FeuturedGame() {
         >
           {gameList.map((item: GameItemTypes) => (
             <GameItem
+              id={item._id}
               key={item._id}
               thumbnail={`${API_IMAGE}/${item.thumbnail}`}
               title={item.name}
