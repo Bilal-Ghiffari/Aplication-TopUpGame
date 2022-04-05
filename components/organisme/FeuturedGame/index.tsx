@@ -1,28 +1,17 @@
-import { useCallback, useEffect, useState } from "react";
 import GameItem from "../../moleculs/GameItem";
-import { getFeatureGame } from "../../../services/player";
 import { GameItemTypes } from "../../../services/data-types";
 
-export default function FeuturedGame() {
-  const [gameList, setGameList] = useState([]);
-  console.log(gameList);
+interface FeaturedGameProps {
+  gameList: GameItemTypes[];
+}
 
-  const getFeatureGameList = useCallback(async () => {
-    const data = await getFeatureGame();
-
-    setGameList(data);
-  }, [getFeatureGame]);
-
-  useEffect(() => {
-    getFeatureGameList();
-  }, []);
-
+export default function FeuturedGame({ gameList }: FeaturedGameProps) {
   const API_IMAGE = process.env.NEXT_PUBLIC_IMG;
 
   return (
     <section className="featured-game pt-50 pb-50">
       <div className="container-fluid">
-        <h2 className="text-4xl fw-bold color-palette-1 mb-30">
+        <h2 className="text-4xl fw-bold color-palette-5 mb-30">
           Our Featured
           <br /> Games This Year
         </h2>
@@ -30,7 +19,7 @@ export default function FeuturedGame() {
           className="d-flex flex-row flex-lg-wrap overflow-setting justify-content-lg-between gap-lg-3 gap-4"
           data-aos="fade-up"
         >
-          {gameList.map((item: GameItemTypes) => (
+          {gameList.map((item) => (
             <GameItem
               id={item._id}
               key={item._id}

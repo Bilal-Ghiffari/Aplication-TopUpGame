@@ -20,7 +20,7 @@ export default function TransActionsDetail(props: TransActionsDetailsProps) {
   );
 }
 
-interface GetServerSideProps {
+interface GetCookies {
   req: {
     cookies: {
       tkn: string;
@@ -32,7 +32,7 @@ interface GetServerSideProps {
   };
 }
 
-export async function getServerSideProps({ req, params }: GetServerSideProps) {
+export async function getServerSideProps({ req, params }: GetCookies) {
   const { tkn } = req.cookies;
   const { idDetailsTransaction } = params;
   if (!tkn) {

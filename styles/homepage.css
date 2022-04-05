@@ -1,4 +1,13 @@
+/* body {
+    background-color: #030306;
+} */
+
 /* Navbar */
+
+/* .navbar-light {
+    background-color: #030306;
+} */
+
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .show>.nav-link {
     font-weight: 500;
@@ -6,30 +15,33 @@
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #0C145A;
+    color: #fdfdfd;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #7E8CAC;
+    color: #5A6D86;
 }
 
 .navbar-light .btn-sign-in {
     color: #0C145A;
-    background-color: #E7EAF5;
+    background-color: #811039;
     padding: 0.75rem 1.875rem;
 }
+
 
 /*  */
 
 
 /* Header */
+
 .header .header-title {
     font-size: 2.625rem;
     line-height: 1.5;
+    color: #D4D4C6;
 }
 
 .header .btn-get {
-    background-color: #4D17E2;
+    background-color: #811039;
     padding: 0.75rem 3rem;
 }
 
@@ -73,7 +85,7 @@
 
 /* Feature */
 .feature .feature-card {
-    background-color: #F9FAFF;
+    background-color: #090913;
     padding: 1.875rem;
     border-radius: 1.625rem;
     margin-right: 16px;
@@ -98,7 +110,8 @@
 
 .featured-game .featured-game-card:hover {
     transition: all 0.4s;
-    border: 4px solid #2B2467;
+    /* border: 4px solid #2B2467; */
+    box-shadow: -3px 4px 15px rgb(35, 173, 255);
 }
 
 .featured-game .featured-game-card:hover img.thumb {
@@ -115,7 +128,7 @@
 
 .featured-game .featured-game-card:hover .blur-sharp {
     width: 192px;
-    border: 7px solid white;
+    /* border: 7px solid white; */
 }
 
 .featured-game .cover {
@@ -146,13 +159,13 @@
 /* Reached */
 .reached .vertical-line {
     width: 1px;
-    background-color: #E7EAF5;
+    background-color: #151520;
     height: 94px;
 }
 
 .reached .horizontal-line {
     width: 240px;
-    background-color: #E7EAF5;
+    background-color: #151520;
     height: 1px;
 }
 
@@ -161,13 +174,15 @@
 /* Story */
 .story .btn-read {
     padding: 0.75rem 3rem;
-    background-color: #E7EAF5;
+    background-color: #811039;
 }
 
 .story .img-fluid {
     max-width: 100%;
     height: auto;
 }
+
+
 
 /*  */
 
@@ -176,7 +191,7 @@
 footer {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background-color: #F9FAFF;
+    background-color: #030306;
 }
 
 footer ul {
@@ -232,7 +247,7 @@ footer ul li a:hover {
         left: 0;
         right: 0;
         width: 100%;
-        background: #00BAFF;
+        background: #5A6D86;
         z-index: -10;
     }
 

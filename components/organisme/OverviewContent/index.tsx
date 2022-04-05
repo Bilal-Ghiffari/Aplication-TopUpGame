@@ -18,7 +18,6 @@ export default function OverviewContent() {
     if (response.error) {
       toast.error(response.message);
     } else {
-      console.log("history", response.data);
       setCount(response.data.count);
       setHistory(response.data.history);
     }

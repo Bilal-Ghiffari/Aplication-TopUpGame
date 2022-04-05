@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 
 export default function SideFooter() {
   return (
@@ -38,21 +38,21 @@ export default function SideFooter() {
                 stroke="white"
                 strokeWidth="2.5"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M25 33.75L25 42.5"
                 stroke="#B7B0F4"
                 strokeWidth="2.5"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M18.75 37.5L18.75 42.5"
                 stroke="#B7B0F4"
                 strokeWidth="2.5"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
               <circle cx="25" cy="16.25" r="8.75" fill="#2B2467" />
               <path
@@ -66,13 +66,11 @@ export default function SideFooter() {
             Be The Winner
           </p>
         </div>
-        <a
-          className="btn btn-get-started w-100 fw-medium text-xs text-center text-white rounded-pill"
-          href="#"
-          role="button"
-        >
-          Get Started
-        </a>
+        <Link href="/">
+          <a className="btn btn-get-started w-100 fw-medium text-xs text-center text-white rounded-pill">
+            Get Started
+          </a>
+        </Link>
       </div>
     </div>
   );

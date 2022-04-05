@@ -19,21 +19,21 @@ export default function CompleteCheckout() {
                 stroke="#FF78B7"
                 strokeWidth="0.6123"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M276.786 262.804C284.994 256.605 293.202 250.406 299.873 242.657C310.132 231.292 317.827 216.31 317.315 200.812C317.315 189.963 313.211 179.631 309.107 169.299C305.001 159.484 300.385 149.152 298.845 138.303C297.306 127.454 298.845 115.572 306.541 107.823C311.159 102.657 319.367 100.074 325.523 105.24C327.574 107.307 329.114 109.89 330.141 112.99C339.374 143.469 298.333 162.584 273.708 156.901C261.908 153.801 250.622 147.085 241.387 139.336C221.892 123.321 208.04 108.857 199.832 84.5764C192.65 63.9121 188.032 41.1817 172.642 24.1337C121.339 -32.6927 20.2732 34.9825 19.7601 100.591C19.7601 137.787 42.8462 174.982 77.7319 185.83C94.6618 190.997 113.131 189.963 131.087 188.93C139.808 188.414 148.529 187.897 157.764 187.38"
                 stroke="#FF78B7"
                 strokeLinecap="round"
-                stroke-linejoin="round"
-                stroke-dasharray="1.22 4"
+                strokeLinejoin="round"
+                strokeDasharray="1.22 4"
               />
               <path
                 d="M163.407 187.897C164.433 187.897 165.46 187.897 166.486 187.897"
                 stroke="#FF78B7"
                 strokeWidth="0.6123"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M30.5337 294.317H334.245"
@@ -41,7 +41,7 @@ export default function CompleteCheckout() {
                 strokeWidth="2"
                 stroke-miterlimit="10"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M2.8302 294.317H15.1428"
@@ -49,7 +49,7 @@ export default function CompleteCheckout() {
                 strokeWidth="2"
                 stroke-miterlimit="10"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M254.212 33.9492H185.98V111.44H254.212V33.9492Z"
@@ -109,7 +109,7 @@ export default function CompleteCheckout() {
                 strokeWidth="1.8941"
                 stroke-miterlimit="10"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
               <path
                 opacity="0.7"

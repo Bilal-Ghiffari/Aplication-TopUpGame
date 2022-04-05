@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Cookies from "js-cookie";
 import cx from "classnames";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
@@ -6,7 +7,7 @@ import { toast } from "react-toastify";
 export default function SinUpForm() {
   const router = useRouter();
   const className = {
-    label: cx("form-label text-lg fw-medium color-palette-1 mb-10"),
+    label: cx("form-label text-lg fw-medium color-palette-5 mb-10"),
   };
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -73,14 +74,15 @@ export default function SinUpForm() {
         toast.error(validatePassword);
       } else {
         localStorage.setItem("user-form", JSON.stringify(useForm));
-        // router.push("/sign-up-photo");
+        Cookies.set("userForm", JSON.stringify(useForm));
+        router.push("/sign-up-photo");
       }
     }
   };
   return (
     <>
-      <h2 className="text-4xl fw-bold color-palette-1 mb-10">Sign Up</h2>
-      <p className="text-lg color-palette-1 m-0">
+      <h2 className="text-4xl fw-bold color-palette-8 mb-10">Sign Up</h2>
+      <p className="text-lg color-palette-3 m-0">
         Daftar dan bergabung dengan kami
       </p>
       <div className="pt-50">

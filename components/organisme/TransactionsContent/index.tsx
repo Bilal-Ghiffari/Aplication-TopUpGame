@@ -16,7 +16,6 @@ export default function TransactionsContent() {
     if (response.error) {
       toast.error(response.message);
     } else {
-      console.log(response);
       setTotal(response.data.total);
       setHistoryTransactions(response.data.history);
     }
@@ -78,42 +77,71 @@ export default function TransactionsContent() {
             </div>
           </div>
         </div>
-        <div className="latest-transaction">
-          <p className="text-lg fw-medium color-palette-1 mb-14">
-            Latest Transactions
-          </p>
-          <div className="main-content main-content-table overflow-auto">
-            <table className="table table-borderless">
-              <thead>
-                <tr className="color-palette-1">
-                  <th className="" scope="col">
-                    Game
-                  </th>
-                  <th scope="col">Item</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody id="list_status_item">
-                {historyTransactions.map(
-                  (transaction: HistoryTransactionTypes) => (
-                    <TableRow
-                      id={transaction._id}
-                      key={transaction._id}
-                      img={`${IMG}/${transaction.historyVoucherTopup.thumbnail}`}
-                      title={transaction.historyVoucherTopup.gameName}
-                      category={transaction.category.name}
-                      item={`${transaction.historyVoucherTopup.coinQuantity} ${transaction.historyVoucherTopup.coinName}`}
-                      price={transaction.value}
-                      status={transaction.status}
-                    />
-                  )
-                )}
-              </tbody>
-            </table>
+        {historyTransactions.length > 0 ? (
+          <div className="latest-transaction">
+            <p className="text-lg fw-medium color-palette-1 mb-14">
+              Latest Transactions
+            </p>
+            <div className="main-content main-content-table overflow-auto">
+              <table className="table table-borderless">
+                <thead>
+                  <tr className="color-palette-1">
+                    <th className="" scope="col">
+                      Game
+                    </th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="list_status_item">
+                  {historyTransactions.map(
+                    (transaction: HistoryTransactionTypes) => (
+                      <TableRow
+                        id={transaction._id}
+                        key={transaction._id}
+                        img={`${IMG}/${transaction.historyVoucherTopup.thumbnail}`}
+                        title={transaction.historyVoucherTopup.gameName}
+                        category={transaction.category.name}
+                        item={`${transaction.historyVoucherTopup.coinQuantity} ${transaction.historyVoucherTopup.coinName}`}
+                        price={transaction.value}
+                        status={transaction.status}
+                      />
+                    )
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        ) : (
+          <>
+            <div className="latest-transaction">
+              <p className="text-lg fw-medium color-palette-1 mb-14">
+                Latest Transactions
+              </p>
+              <div className="main-content main-content-table overflow-auto">
+                <table className="table table-borderless">
+                  <thead>
+                    <tr className="color-palette-1">
+                      <th className="" scope="col">
+                        Game
+                      </th>
+                      <th scope="col">Item</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="list_status_item"></tbody>
+                </table>
+              </div>
+            </div>
+            <div className="d-flex mt-20 justify-content-center">
+              <p>Belum ada transaksi disini</p>
+            </div>
+          </>
+        )}
       </div>
     </main>
   );

@@ -1,17 +1,18 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-
-import { getGameCategory } from "../services/player";
 import Image from "next/image";
 import { useRouter } from "next/router";
+
+import { getGameCategory } from "../services/player";
 import { setSignUp } from "../services/auth";
+import { FavoriteGame } from "../services/data-types";
 
 export default function SignUpPhoto() {
   // state section
   const [categories, setCategories] = useState([]);
   const [favorite, setFavorite] = useState("");
-  const [image, setImage] = useState("");
-  const [imagePreview, setImagePreview] = useState(null);
+  const [image, setImage] = useState<any>("");
+  const [imagePreview, setImagePreview] = useState<any>(null);
   const [localForm, setLocalForm] = useState({
     name: "",
     email: "",
@@ -24,7 +25,6 @@ export default function SignUpPhoto() {
 
     setCategories(data);
     setFavorite(data[0]._id);
-    console.log(data);
   }, [getGameCategory]);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function SignUpPhoto() {
   }, []);
 
   const onSubmit = async () => {
-    const getlocalForm = await localStorage.getItem("user-form");
+    const getlocalForm = localStorage.getItem("user-form");
     const form = JSON.parse(getlocalForm!);
     // memastikan getLocalform data nya selalu ada kita kasih tanda seru diakhir variable!
     const data = new FormData();
@@ -46,7 +46,7 @@ export default function SignUpPhoto() {
     data.append("email", form.email);
     data.append("name", form.name);
     data.append("password", form.password);
-    data.append("phoneNumber", form.phoneNumber);
+    data.append("phoneNumber", form.telephone);
     data.append("username", form.name);
     data.append("role", "user");
     data.append("status", "Y");
@@ -58,10 +58,11 @@ export default function SignUpPhoto() {
     } else {
       // not error
       toast.success("Register Berhasil");
-      router.push("/sign-up-success");
+      router.replace("/sign-up-success");
       localStorage.removeItem("user-form");
     }
   };
+
   return (
     <section className="sign-up-photo mx-auto pt-lg-227 pb-lg-227 pt-130 pb-50">
       <div className="container mx-auto">
@@ -92,7 +93,7 @@ export default function SignUpPhoto() {
                     name="avatar"
                     accept="image/png, image/jpeg"
                     onChange={(event) => {
-                      const img = event.target.files[0];
+                      const img = event.target.files![0];
                       setImagePreview(URL.createObjectURL(img));
                       return setImage(img);
                     }}
@@ -120,7 +121,7 @@ export default function SignUpPhoto() {
                   value={favorite}
                   onChange={(event) => setFavorite(event.target.value)}
                 >
-                  {categories.map((category) => (
+                  {categories.map((category: FavoriteGame) => (
                     <option key={category._id} value={category._id} selected>
                       {category.name}
                     </option>
@@ -150,4 +151,38 @@ export default function SignUpPhoto() {
       </div>
     </section>
   );
+}
+
+interface GetServerSideProps {
+  req: {
+    cookies: {
+      tkn: string;
+      userForm: string;
+    };
+  };
+}
+
+export async function getServerSideProps({ req }: GetServerSideProps) {
+  const { tkn, userForm } = req.cookies;
+
+  if (tkn) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  if (!userForm) {
+    return {
+      redirect: {
+        destination: "/validationPhoto",
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {},
+  };
 }

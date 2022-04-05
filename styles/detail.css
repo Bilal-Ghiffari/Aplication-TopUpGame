@@ -1,55 +1,101 @@
 /* Details */
-.detail .img-fluid{
+.detail .img-fluid {
     max-width: 100%;
     height: auto;
     border-radius: 1.625rem;
 }
 
-.detail hr{
-        margin: 0;    
-        background-color:#E7EAF5;
-        border: 0;
-        opacity: 1;
+
+.detail hr {
+    margin: 0;
+    background-color: #10101a;
+    border: 0;
+    opacity: 1;
 }
 
-.detail input[type="text"]{
+.detail input[type="text"] {
     max-width: 437px;
     border: 1px solid #0C145A;
     padding: 0.75rem 1.625rem;
-    color: #0C145A;
+    color: #E7EAF5;
 }
 
-.detail input[type="text"]:focus-within{
-    color: #0C145A;
+.detail .form-control {
+    background-color: #121220;
 }
 
-.detail input[type="text"]::placeholder{
-    color: #CCD0DD;
+.detail input[type="text"]:focus-within {
+    color: #E7EAF5;
 }
 
-.detail .detail-card{
+.detail input[type="text"]::placeholder {
+    color: #393947;
+}
+
+.detail .detail-card {
     transition: all 0.1s linear;
-    background-color: #F9FAFF;
+    background-color: #121220;
     border-radius: 1.625rem;
     padding: 1.875rem;
     cursor: pointer;
 }
 
-.detail input[type="radio"]:checked+.detail-card{
-    border: 2px solid #00BAFF;
-    background-color: rgba(0, 186, 255, 0.05);
+.detail input[type="radio"]:checked+.nominal {
+    background-color: #66D6A4;
 }
 
-.detail .detail-card #icon-check{
+.detail input[type="radio"]:checked+.payment {
+    background-color: #FDB3CB;
+}
+
+.detail .detail-card #icon-check {
     transition: all 0.1s linear;
     opacity: 0;
 }
 
-.detail input[type="radio"]:checked+.detail-card #icon-check{
+.detail input[type="radio"]:checked+.detail-card #icon-check {
     opacity: 1;
 }
 
-.detail .btn-submit{    
-        background-color: #4D17E2;
-        padding: 0.75rem 3rem;
+/* .detail .btn-submit {
+    background-color: #619276;
+    padding: 0.75rem 3rem;
+} */
+.action {
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px 30px;
+    position: relative;
+    border: 2px solid #619276;
+    -webkit-transition: all 0.4s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    transition: all 0.4s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+}
+
+.action::before {
+    content: '';
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #619276;
+    -webkit-transition: all 0.4s cubic-bezier(0.6, 0.04, 0.98, 0.355);
+    transition: all 0.4s cubic-bezier(0.6, 0.04, 0.98, 0.355);
+    ;
+}
+
+.action:hover::before {
+    width: 100%;
+}
+
+.action span {
+    color: #619276;
+}
+
+.action:hover>span {
+    color: white;
+}
+
+.action span {
+    position: relative;
 }

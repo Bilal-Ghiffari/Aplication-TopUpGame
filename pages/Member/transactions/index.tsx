@@ -1,7 +1,5 @@
-import jwtDecode from "jwt-decode";
 import SideBar from "../../../components/organisme/SideBar";
 import TransactionsContent from "../../../components/organisme/TransactionsContent";
-import { JwtPayloadTypes } from "../../../services/data-types";
 
 export default function Transactions() {
   return (
@@ -12,7 +10,15 @@ export default function Transactions() {
   );
 }
 
-export async function getServerSideProps({ req }) {
+interface GetServerSideProps {
+  req: {
+    cookies: {
+      tkn: string;
+    };
+  };
+}
+
+export async function getServerSideProps({ req }: GetServerSideProps) {
   const { tkn } = req.cookies;
 
   if (!tkn) {
@@ -24,16 +30,7 @@ export async function getServerSideProps({ req }) {
     };
   }
 
-  const jwtToken = Buffer.from(tkn, "base64").toString("ascii");
-  const payload: JwtPayloadTypes = jwtDecode(jwtToken);
-  const userFromPayload = payload.player;
-
-  const IMG = process.env.NEXT_PUBLIC_IMG;
-  userFromPayload.avatar = `${IMG}/${userFromPayload.avatar}`;
-
   return {
-    props: {
-      user: userFromPayload,
-    },
+    props: {},
   };
 }

@@ -4,6 +4,11 @@ export interface CategoryTypes {
   __v: number;
 }
 
+export interface FavoriteGame {
+  _id: string;
+  name: string;
+}
+
 export interface GameItemTypes {
   _id: string;
   name: string;

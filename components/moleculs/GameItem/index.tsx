@@ -17,7 +17,7 @@ export default function GameItem(props: GameItemProps) {
         <a>
           <div className="blur-sharp">
             <Image
-              className="thumbnail"
+              className="thumb"
               src={thumbnail}
               width={205}
               height={270}

@@ -16,12 +16,11 @@ interface TopUpFormProps {
   payments: PaymentTypes[];
 }
 
-export default function TopUpForm(props: TopUpFormProps) {
+export default function TopUpForm({ nominals, payments }: TopUpFormProps) {
   const [verifyID, setVerifyID] = useState("");
   const [bankAccountName, setBankAccountName] = useState("");
   const [nominalItem, setNominalItem] = useState({});
   const [paymentItem, setPaymentItem] = useState({});
-  const { nominals, payments } = props;
   const router = useRouter();
 
   const onNominalItemChange = (data: NominalsTypes) => {
@@ -45,16 +44,11 @@ export default function TopUpForm(props: TopUpFormProps) {
   }, []);
 
   const onSubmit = () => {
-    console.log("verify", verifyID);
-    console.log("bankAccountName", bankAccountName);
-    console.log("nominal", nominalItem);
-    console.log("payment", paymentItem);
-
     if (
-      verifyID === "" ||
-      bankAccountName === "" ||
       nominalItem === {} ||
-      paymentItem === {}
+      paymentItem === {} ||
+      verifyID === "" ||
+      bankAccountName === ""
     ) {
       toast.error("silahkan isi semua data!!!");
     } else {
@@ -74,9 +68,9 @@ export default function TopUpForm(props: TopUpFormProps) {
         <div className="">
           <label
             htmlFor="ID"
-            className="form-label text-lg fw-medium color-palette-1 mb-10"
+            className="form-label text-lg fw-medium color-palette-5 mb-10"
           >
-            Verify ID
+            Verifikasi ID pemain
           </label>
           <input
             type="text"
@@ -91,7 +85,7 @@ export default function TopUpForm(props: TopUpFormProps) {
         </div>
       </div>
       <div className="pt-md-50 pb-md-50 pt-30 pb-20">
-        <p className="text-lg fw-medium color-palette-1 mb-md-10 mb-0">
+        <p className="text-lg fw-medium color-palette-5 mb-md-10 mb-0">
           Nominal Top Up
         </p>
         <div className="row justify-content-between">
@@ -109,7 +103,7 @@ export default function TopUpForm(props: TopUpFormProps) {
         </div>
       </div>
       <div className="pb-md-50 pb-20">
-        <p className="text-lg fw-medium color-palette-1 mb-md-10 mb-0">
+        <p className="text-lg fw-medium color-palette-5 mb-md-10 mb-0">
           Payment Method
         </p>
         <fieldset id="paymentMethod">
@@ -132,7 +126,7 @@ export default function TopUpForm(props: TopUpFormProps) {
       <div className="pb-50">
         <label
           htmlFor="bankAccount"
-          className="form-label text-lg fw-medium color-palette-1 mb-10"
+          className="form-label text-lg fw-medium color-palette-5 mb-10"
         >
           Bank Account Name
         </label>
@@ -150,10 +144,10 @@ export default function TopUpForm(props: TopUpFormProps) {
       <div className="d-sm-block d-flex flex-column w-100">
         <button
           type="button"
-          className="btn btn-submit rounded-pill fw-medium text-white border-0 text-lg"
+          className="btn btn-submit fw-medium text-white text-lg action"
           onClick={onSubmit}
         >
-          Continue
+          <span>Continue</span>
         </button>
       </div>
     </form>

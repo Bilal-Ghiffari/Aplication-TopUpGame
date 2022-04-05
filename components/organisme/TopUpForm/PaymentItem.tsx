@@ -21,7 +21,7 @@ export default function PaymentItem(props: PaymentItemProps) {
         value={bankId}
         onChange={onChange}
       />
-      <div className="detail-card">
+      <div className="detail-card payment">
         <div className="d-flex justify-content-between">
           <p className="text-3xl color-palette-1 fw-medium m-0">{type}</p>
           <svg
@@ -32,13 +32,13 @@ export default function PaymentItem(props: PaymentItemProps) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle cx="10" cy="10" r="10" fill="#CDF1FF" />
+            <circle cx="10" cy="10" r="10" fill="#16a56a" />
             <path
               d="M5.83301 10L8.46459 12.5L14.1663 7.5"
-              stroke="#00BAFF"
+              stroke="#D4D4C6"
               strokeWidth="2"
               strokeLinecap="round"
-              stroke-linejoin="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>

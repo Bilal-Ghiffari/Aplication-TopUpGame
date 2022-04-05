@@ -35,7 +35,6 @@ export default function CheckoutDetails() {
 
     const dataItemLocal = JSON.parse(dataFromLocal!);
     setDatTopUp(dataItemLocal);
-    console.log(dataItemLocal);
   }, []);
 
   // coinName and coinQuantity

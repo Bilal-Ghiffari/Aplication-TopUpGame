@@ -31,6 +31,7 @@ interface GetServerSideProps {
     cookies: {
       tkn: string;
       checktopup: string;
+      checkItem: string;
     };
   };
 }
@@ -38,7 +39,6 @@ interface GetServerSideProps {
 export async function getServerSideProps({ req }: GetServerSideProps) {
   const { tkn, checktopup, checkItem } = req.cookies;
 
-  console.log(tkn);
   if (!tkn) {
     return {
       redirect: {

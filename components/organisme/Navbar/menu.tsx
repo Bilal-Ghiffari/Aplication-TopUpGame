@@ -1,6 +1,5 @@
-import cx from "classnames";
 import Link from "next/link";
-
+import cx from "classnames";
 interface MenuProps {
   title: string;
   active?: boolean;
@@ -8,7 +7,7 @@ interface MenuProps {
 }
 
 export default function LinkMenu(props: Partial<MenuProps>) {
-  const { title, active, href = "" } = props;
+  const { title, active, href = "/" } = props;
   const classTitle = cx({
     "nav-link": true,
     active,

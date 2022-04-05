@@ -5,11 +5,10 @@ import SideFooter from "./SideFooter";
 import MenuItems from "./MenuItems";
 
 interface SideBarProps {
-  activeMenu: "overview" | "transactions" | "settings";
+  activeMenu?: "overview" | "transactions" | "settings" | "Log Out";
 }
 
-export default function SideBar(props: SideBarProps) {
-  const { activeMenu } = props;
+export default function SideBar({ activeMenu }: SideBarProps) {
   const router = useRouter();
 
   const onLogout = () => {
@@ -34,9 +33,8 @@ export default function SideBar(props: SideBarProps) {
             icon="ic-menu-transaction"
             href="/Member/transactions"
           />
-          <MenuItems title="Messages" icon="ic-menu-messages" href="/message" />
           <MenuItems title="Card" icon="ic-menu-card" href="/card" />
-          <MenuItems title="Rewards" icon="ic-menu-reward" href="rewards" />
+          <MenuItems title="Rewards" icon="ic-menu-reward" href="/" />
           <MenuItems
             active={activeMenu === "settings"}
             title="Settings"

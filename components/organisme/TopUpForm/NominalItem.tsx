@@ -24,10 +24,10 @@ export default function NominalItem(props: NominalItemProps) {
         value={_id}
         onChange={onChange}
       />
-      <div className="detail-card">
+      <div className="detail-card nominal">
         <div className="d-flex justify-content-between">
           <p className="text-3xl color-palette-1 m-0">
-            <span className="fw-medium">{coinQuantity}</span>
+            <span className="fw-medium">{coinQuantity} </span>
             {coinName}
           </p>
           <svg
@@ -38,13 +38,13 @@ export default function NominalItem(props: NominalItemProps) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle cx="10" cy="10" r="10" fill="#CDF1FF" />
+            <circle cx="10" cy="10" r="10" fill="#16a56a" />
             <path
               d="M5.83301 10L8.46459 12.5L14.1663 7.5"
-              stroke="#00BAFF"
+              stroke="#D4D4C6"
               strokeWidth="2"
               strokeLinecap="round"
-              stroke-linejoin="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>

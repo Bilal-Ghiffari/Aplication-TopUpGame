@@ -11,7 +11,6 @@ export default function TransactionsContentDetails(
   props: TransactionsContentDetailsProps
 ) {
   const { data } = props;
-  console.log("data", data);
   const IMG = process.env.NEXT_PUBLIC_IMG;
   return (
     <main className="main-wrapper">

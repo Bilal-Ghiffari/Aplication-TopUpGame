@@ -22,7 +22,7 @@ export default function Profile() {
   return (
     <div className="user text-center pb-50 pe-30">
       <img
-        src={user.avatar}
+        src={user.avatar ?? "./images/avatar-1.png"}
         width={90}
         height={90}
         className="img-fluid mb-20"

@@ -8,7 +8,7 @@ export default function Story() {
         <div className="row align-items-center px-lg-5 mx-auto gap-lg-0 gap-4">
           <div
             className="col-lg-7 col-12 d-lg-flex d-none justify-content-lg-end pe-lg-60"
-            // data-aos={"zoom-in"}
+            data-aos={"zoom-in"}
           >
             <img
               src="/images/Header-9.png"

@@ -1,20 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { setCheckout } from "../../../../services/player";
 
+interface CheckoutConfirmationTypes {
+  bankAccountName: string;
+}
+
 export default function CheckoutConfirmation() {
   const [checkBox, setCheckBox] = useState(false);
   const router = useRouter();
+  const [
+    dataTopUpCheckout,
+    setDataTopUpCheckout,
+  ] = useState<CheckoutConfirmationTypes>();
+
+  useEffect(() => {
+    const dataTopUpLocal = localStorage.getItem("top-up");
+    // tanda seru dibalekang karakter memastikan dia itu mempunyai data
+    const dataTopUpCheckout = JSON.parse(dataTopUpLocal!);
+
+    setDataTopUpCheckout(dataTopUpCheckout);
+  }, []);
+
+  function handleCanclePayment() {
+    localStorage.removeItem("top-up");
+    localStorage.removeItem("data-item");
+    router.push("/");
+  }
 
   const onSubmit = async () => {
     const dataItemLocal = localStorage.getItem("data-item");
-    const dataTopUpLocal = localStorage.getItem("top-up");
+    const dataTopupLocal = localStorage.getItem("top-up");
 
-    // tanda seru dibalekang karakter memastikan dia itu mempunyai data
     const dataItem = JSON.parse(dataItemLocal!);
-    const dataTopUp = JSON.parse(dataTopUpLocal!);
-
+    const dataTopUp = JSON.parse(dataTopupLocal!);
     const data = {
       voucher: dataItem._id,
       nominal: dataTopUp.nominalItem._id,
@@ -35,6 +55,7 @@ export default function CheckoutConfirmation() {
       } else {
         toast.success("Berhasil Checkout");
         router.push("/complete-checkout");
+        localStorage.removeItem("top-up");
       }
     }
   };
@@ -49,6 +70,7 @@ export default function CheckoutConfirmation() {
         />
         <span className="checkmark"></span>
       </label>
+
       <div className="d-md-block d-flex flex-column w-100 pt-50">
         <button
           className="btn btn-confirm-payment rounded-pill fw-medium text-white border-0 text-lg"
@@ -57,6 +79,53 @@ export default function CheckoutConfirmation() {
         >
           Confirm Payment
         </button>
+      </div>
+
+      <a
+        type="button"
+        className="modal-button fw-semibold fs-6"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Cancle payment
+      </a>
+
+      <div
+        className="modal fade"
+        id="exampleModal"
+        // tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
+                Haii {dataTopUpCheckout?.bankAccountName}
+              </h5>
+            </div>
+            <div className="modal-body">
+              Apakah anda yakin ingin membatalkan pembayaran
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-danger"
+                data-bs-dismiss="modal"
+              >
+                batal
+              </button>
+              <button
+                type="button"
+                className="btn btn-success"
+                data-bs-dismiss="modal"
+                onClick={handleCanclePayment}
+              >
+                continue
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

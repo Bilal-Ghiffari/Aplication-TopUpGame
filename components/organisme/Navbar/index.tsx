@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <section>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light bg-white pt-lg-40 pb-lg-40 pt-30 pb-50">
+      <nav className="navbar navbar-expand-lg navbar-light  pt-lg-40 pb-lg-40 pt-30 pb-50">
         <div className="container-fluid">
           <Link href="/">
             <a className="navbar-brand">
@@ -18,7 +18,7 @@ export default function Navbar() {
             <ul className="navbar-nav ms-auto text-lg gap-lg-0 gap-2">
               <LinkMenu title="Home" active />
               <LinkMenu title="Games" href="/games" />
-              <LinkMenu title="Rewards" href="/rewards" />
+              <LinkMenu title="Rewards" />
               <LinkMenu title="Discover" href="/descover" />
               <LinkMenu title="Global Rank" href="/global-rank" />
               <Auth />

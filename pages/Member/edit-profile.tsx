@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Input from "../../components/atoms/Input";
 import SideBar from "../../components/organisme/SideBar";
+import { JwtPayloadTypes } from "../../services/data-types";
 import { getMemberEditProfile } from "../../services/member";
 
 export default function EditProfile() {
@@ -15,16 +16,15 @@ export default function EditProfile() {
     avatar: "",
   });
   // state image
-  const [imagePreview, setImagePreview] = useState(null);
+  const [imagePreview, setImagePreview] = useState<any>(null);
   const router = useRouter();
 
   useEffect(() => {
     const token = Cookies.get("tkn");
     if (token) {
       const jwtToken = atob(token);
-      const payload = jwtDecode(jwtToken);
+      const payload:JwtPayloadTypes = jwtDecode(jwtToken);
       const userFromPayload = payload.player;
-      console.log(userFromPayload);
 
       setUser(userFromPayload);
     }
@@ -112,19 +112,25 @@ export default function EditProfile() {
                 </div>
                 <div className="pt-30">
                   <Input
-                    label="Full Name"
+                    label="Username"
                     value={user.nama}
                     onChange={(event) => setName(event)}
                   />
                 </div>
                 <div className="pt-30">
-                  <Input label="Email Address" disabled value={user.email} />
+                  <Input
+                    style={{ cursor: "no-drop" }}
+                    label="Email"
+                    value={user.email}
+                    disabled
+                  />
                 </div>
                 <div className="pt-30">
                   <Input
                     label="phone"
                     value={user.phoneNumber}
                     onChange={(event) => setPhoneNumber(event)}
+                    maxLength={12}
                   />
                 </div>
                 <div className="button-group d-flex flex-column pt-50">

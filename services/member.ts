@@ -5,10 +5,9 @@ const API_VERSION = "api/v1";
 
 export async function getMemberOverview() {
   const url = `${ROOT_API}/${API_VERSION}/players/dashboard`;
-
   return callAPi({
-    url,
     method: "GET",
+    url,
     token: true,
   });
 }
@@ -22,7 +21,6 @@ export async function getMemberTransactions(queryParams: string) {
   } else {
     // selain query nya itu all berarti ada success failed pending
     query = `?status=${queryParams}`;
-    console.log(query);
   }
   const url = `${ROOT_API}/${API_VERSION}/players/history${query}`;
 

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect } from "react";
 
 interface TopUpItemProps {
   type: "mobile" | "desktop";
@@ -13,16 +14,18 @@ interface TopUpItemProps {
 
 const IMG = process.env.NEXT_PUBLIC_IMG;
 
-export default function TopUpItem(props: TopUpItemProps) {
-  const { type, detail } = props;
+export default function TopUpItem({ type, detail }: TopUpItemProps) {
+  useEffect(() => {
+    localStorage.setItem("data-item", JSON.stringify(detail));
+  }, []);
 
   if (type === "desktop") {
     return (
       <div className="pb-50 d-md-block d-none">
-        <h2 className="text-4xl fw-bold color-palette-1 text-start mb-10 mt-10">
+        <h2 className="text-4xl fw-bold color-palette-5 text-start mb-10 mt-10">
           {detail.name}
         </h2>
-        <p className="text-lg color-palette-2 mb-0">
+        <p className="text-lg color-palette-3 mb-0">
           Category: {detail.category.name}
         </p>
       </div>
@@ -31,7 +34,7 @@ export default function TopUpItem(props: TopUpItemProps) {
 
   return (
     <div className="row align-items-center">
-      <div className="col-md-12 col-4">
+      <div className="col-md-12 col-4 images" data-aos={"zoom-in"}>
         <Image
           src={`${IMG}/${detail.thumbnail}`}
           width="280"
