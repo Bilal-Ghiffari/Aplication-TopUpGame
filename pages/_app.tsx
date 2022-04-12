@@ -17,6 +17,7 @@ import "../styles/navbar-log-in.css";
 import "../styles/message.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as serviceWorkerRegistration from "./ServiceWorker/serviceWorkerRegistration";
 
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -58,4 +59,5 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   );
 }
+serviceWorkerRegistration.register();
 export default MyApp;
