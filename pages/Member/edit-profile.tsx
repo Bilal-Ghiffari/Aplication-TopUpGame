@@ -16,14 +16,14 @@ export default function EditProfile() {
     avatar: "",
   });
   // state image
-  const [imagePreview, setImagePreview] = useState<any>(null);
+  const [imagePreview, setImagePreview] = useState<any>("/");
   const router = useRouter();
 
   useEffect(() => {
     const token = Cookies.get("tkn");
     if (token) {
       const jwtToken = atob(token);
-      const payload:JwtPayloadTypes = jwtDecode(jwtToken);
+      const payload: JwtPayloadTypes = jwtDecode(jwtToken);
       const userFromPayload = payload.player;
 
       setUser(userFromPayload);
@@ -45,7 +45,7 @@ export default function EditProfile() {
   };
 
   const ImageUpdate = (event: any) => {
-    const img = event.target.files[0];
+    const img = event.target.files![0];
     setImagePreview(URL.createObjectURL(img));
     return setUser({
       ...user,
@@ -83,19 +83,19 @@ export default function EditProfile() {
                 <div className="photo d-flex">
                   <div className="image-upload">
                     <label htmlFor="avatar">
-                      {imagePreview ? (
+                      {imagePreview === "/" ? (
                         <img
-                          src={imagePreview}
-                          width={90}
-                          height={90}
+                          src={user.avatar}
+                          width="90"
+                          height="90"
                           alt=""
                           className="upload-photo"
                         />
                       ) : (
                         <img
-                          src={user.avatar}
-                          width="90"
-                          height="90"
+                          src={imagePreview}
+                          width={90}
+                          height={90}
                           alt=""
                           className="upload-photo"
                         />

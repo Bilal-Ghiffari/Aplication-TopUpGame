@@ -16,13 +16,15 @@ export default function Profile() {
       const jwtToken = atob(token);
       const payload: JwtPayloadTypes = jwtDecode(jwtToken);
       const userFromPayload = payload.player;
-      setUser(userFromPayload);
+      const Profile = process.env.NEXT_PUBLIC_IMG;
+      user.avatar = `${Profile}/${userFromPayload.avatar}`;
+      setUser(user);
     }
   }, []);
   return (
     <div className="user text-center pb-50 pe-30">
       <img
-        src={user.avatar ?? "./images/avatar-1.png"}
+        src={user.avatar}
         width={90}
         height={90}
         className="img-fluid mb-20"

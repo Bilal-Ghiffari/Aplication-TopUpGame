@@ -12,6 +12,7 @@ import "../styles/sidebar.css";
 import "../styles/transactions.css";
 import "../styles/transactions-detail.css";
 import "../styles/edit-profile.css";
+import "../styles/sign-up-success.css";
 import "../styles/navbar-log-in.css";
 import "../styles/message.css";
 import { ToastContainer } from "react-toastify";

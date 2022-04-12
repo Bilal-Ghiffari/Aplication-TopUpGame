@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <section>
-      <nav className="navbar navbar-expand-lg navbar-light  pt-lg-40 pb-lg-40 pt-30 pb-50">
+      <nav className="navbar navbar-expand-lg navbar-dark  pt-lg-40 pb-lg-40 pt-30 pb-50">
         <div className="container-fluid">
           <Link href="/">
             <a className="navbar-brand">

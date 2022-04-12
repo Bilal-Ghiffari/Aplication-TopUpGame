@@ -12,6 +12,7 @@ export default function SignUpPhoto() {
   const [categories, setCategories] = useState([]);
   const [favorite, setFavorite] = useState("");
   const [image, setImage] = useState<any>("");
+  // bug image tidak boleh di kasish default null harus "/"
   const [imagePreview, setImagePreview] = useState<any>(null);
   const [localForm, setLocalForm] = useState({
     name: "",

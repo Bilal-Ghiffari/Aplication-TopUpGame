@@ -54,8 +54,9 @@ export default function CheckoutConfirmation() {
         toast.error(response.message);
       } else {
         toast.success("Berhasil Checkout");
-        router.push("/complete-checkout");
         localStorage.removeItem("top-up");
+        localStorage.removeItem("data-item");
+        router.push("/complete-checkout");
       }
     }
   };

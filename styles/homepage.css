@@ -110,11 +110,10 @@
 
 .featured-game .featured-game-card:hover {
     transition: all 0.4s;
-    /* border: 4px solid #2B2467; */
-    box-shadow: -3px 4px 15px rgb(35, 173, 255);
+    border: 4px solid #5c5885;
 }
 
-.featured-game .featured-game-card:hover img.thumb {
+.featured-game .featured-game-card:hover img.thumbnail {
     transition: all 0.4s;
     filter: blur(40px);
     width: 181px;
@@ -127,8 +126,9 @@
 }
 
 .featured-game .featured-game-card:hover .blur-sharp {
-    width: 192px;
-    /* border: 7px solid white; */
+    width: 100%;
+    height: 100%;
+    border: 7px solid white;
 }
 
 .featured-game .cover {

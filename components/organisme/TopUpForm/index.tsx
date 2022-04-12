@@ -43,10 +43,13 @@ export default function TopUpForm({ nominals, payments }: TopUpFormProps) {
     Cookies.set("checkItem", itemBase64);
   }, []);
 
+  const payment = Object.keys(paymentItem);
+  const nominal = Object.keys(nominalItem);
+
   const onSubmit = () => {
     if (
-      nominalItem === {} ||
-      paymentItem === {} ||
+      payment.length === 0 ||
+      nominal.length === 0 ||
       verifyID === "" ||
       bankAccountName === ""
     ) {
@@ -58,8 +61,8 @@ export default function TopUpForm({ nominals, payments }: TopUpFormProps) {
         nominalItem,
         paymentItem,
       };
-      localStorage.setItem("top-up", JSON.stringify(dataTopUp));
       router.push("/checkout");
+      localStorage.setItem("top-up", JSON.stringify(dataTopUp));
     }
   };
   return (

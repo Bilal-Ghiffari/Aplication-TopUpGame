@@ -22,9 +22,9 @@ export default function Auth() {
       const payload: JwtPayloadTypes = jwt_decode(jwtToken);
       const userFromPayload = payload.player;
       const IMG = process.env.NEXT_PUBLIC_IMG;
-      userFromPayload.avatar = `${IMG}/${userFromPayload.avatar}`;
+      user.avatar = `${IMG}/${userFromPayload.avatar}`;
       setIsLogin(true);
-      setUser(userFromPayload);
+      setUser(user);
     }
   }, []);
 
@@ -90,7 +90,7 @@ export default function Auth() {
     );
   }
   return (
-    <li className="nav-item my-auto">
+    <li className="nav-item navbar-light my-auto">
       <Link href="/sign-in">
         <a
           className="btn btn-sign-in d-flex justify-content-center ms-lg-2 rounded-pill"

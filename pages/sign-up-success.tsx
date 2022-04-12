@@ -203,3 +203,33 @@ export default function SignUpSuccess() {
     </section>
   );
 }
+
+interface GetServerSideProps {
+  req: {
+    cookies: {
+      tkn: string;
+    };
+  };
+}
+
+export function getServerSideProps({ req }: GetServerSideProps) {
+  const { tkn } = req.cookies;
+
+  if (tkn) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  if (!tkn) {
+    return {
+      redirect: {
+        destination: "/sign-up",
+        permanent: false,
+      },
+    };
+  }
+}
