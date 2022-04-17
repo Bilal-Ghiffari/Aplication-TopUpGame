@@ -21,7 +21,7 @@ export default () => {
             </svg>
           </div>
           <div className="ml-3">
-            <p className="fs-5 color-palette-ranting-22">
+            <p className="fs-6 color-palette-ranting-22">
               You are offline. Don't you worry, you still can do things.
             </p>
           </div>
