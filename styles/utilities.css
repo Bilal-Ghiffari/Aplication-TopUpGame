@@ -279,6 +279,11 @@
     color: #5A6D86;
 }
 
+.color-palette-9 {
+    min-height: 100vh;
+    background-color: #090913;
+}
+
 
 .color-palette-ranting-1 {
     color: #EF62FF
@@ -286,6 +291,10 @@
 
 .color-palette-ranting-2 {
     color: #F5B671;
+}
+
+.color-palette-ranting-22 {
+    color: #b7791f;
 }
 
 .color-palette-ranting-3 {

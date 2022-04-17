@@ -227,7 +227,7 @@ export function getServerSideProps({ req }: GetServerSideProps) {
   if (!tkn) {
     return {
       redirect: {
-        destination: "/sign-up",
+        destination: "/sign-in",
         permanent: false,
       },
     };

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import Head from "next/head";
 import { toast } from "react-toastify";
 import {
   HistoryTransactionTypes,
@@ -30,6 +31,19 @@ export default function OverviewContent() {
   const IMG = process.env.NEXT_PUBLIC_IMG;
   return (
     <>
+      <Head>
+        <title>overview | paygames</title>
+        <meta
+          name="description"
+          content="menyediakan cara untuk membantu player juara dengan TopUp dikami dengan mudah dan cepat"
+        />
+        <meta property="og:title" content="paygames" />
+        <meta
+          property="og:description"
+          content="menyediakan cara untuk membantu player juara dengan TopUp dikami dengan mudah dan cepat"
+        />
+        <link rel="icon" href="/icon/logo.png" />
+      </Head>
       <SideBar activeMenu="overview" />
       <main className="main-wrapper">
         <div className="ps-lg-0">
@@ -64,9 +78,15 @@ export default function OverviewContent() {
                     <th className="text-start" scope="col">
                       Game
                     </th>
-                    <th scope="col">Item</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status</th>
+                    <th scope="col" className="px-3">
+                      Item
+                    </th>
+                    <th scope="col" className="px-3">
+                      Price
+                    </th>
+                    <th scope="col" className="px-3">
+                      Status
+                    </th>
                   </tr>
                 </thead>
                 <tbody>

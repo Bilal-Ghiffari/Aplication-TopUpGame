@@ -4,6 +4,7 @@
 
 .overview main.main-wrapper {
     margin-left: 340px;
+    overflow-x: auto;
     height: 100%;
     margin-right: auto;
     position: relative;
@@ -18,7 +19,8 @@
     background-color: #dbdcf0;
     padding: 1.25rem 1.875rem;
     border-radius: 1rem;
-    max-width: 900px;
+    /* max-width: 900px; */
+    max-width: 70rem;
 }
 
 .overview .latest-transaction .game-title-header {
@@ -70,4 +72,5 @@
     .overview main.main-wrapper {
         width: 100%;
     }
+
 }

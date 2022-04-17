@@ -27,7 +27,7 @@
     "react/jsx-props-no-spreading": "off",
     "import/no-unresolved": "off",
     "jsx-a11y/label-has-associated-control": "off",
-    "beforeStatementContinuationChars": "always",
+    "beforeStatementContinuationChars": "any",
     "no-underscore-dangle": "off",
     "import/extensions": [
       "error",

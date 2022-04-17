@@ -17,7 +17,6 @@ import "../styles/navbar-log-in.css";
 import "../styles/message.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import * as serviceWorkerRegistration from "./ServiceWorker/serviceWorkerRegistration";
 
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -26,6 +25,17 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <link rel="manifest" href="/manifest.json" />
+        {/* color statusbar android */}
+        <meta name="theme-color" content="#090913" />
+        {/* color statusbar iphone */}
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="icon-152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png" />
         {/* Boostrap css */}
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
@@ -59,5 +69,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   );
 }
-serviceWorkerRegistration.register();
 export default MyApp;

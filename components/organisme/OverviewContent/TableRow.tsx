@@ -30,19 +30,19 @@ export default function TableRow(props: TableRowProps) {
           alt=""
         />
         <div className="game-title-header">
-          <p className="game-title fw-medium text-start color-palette-1 m-0">
+          <p className="game-title fw-medium text-start color-palette-1">
             {title}
           </p>
-          <p className="text-xs fw-normal text-start color-palette-2 m-0">
+          <p className="text-xs fw-normal text-start color-palette-2 px-3">
             {category}
           </p>
         </div>
       </th>
       <td>
-        <p className="fw-medium color-palette-1 m-0">{item}</p>
+        <p className="fw-medium color-palette-1 px-3">{item}</p>
       </td>
       <td>
-        <p className="fw-medium text-start color-palette-1 m-0">
+        <p className="fw-medium text-start color-palette-1 px-3">
           <NumberFormat
             value={price}
             decimalSeparator=","
@@ -54,7 +54,7 @@ export default function TableRow(props: TableRowProps) {
       <td>
         <div>
           <span className={statusClass}></span>
-          <p className="fw-medium text-start color-palette-1 m-0 position-relative">
+          <p className="fw-medium text-start color-palette-1 m-0 position-relative px-3">
             {status}
           </p>
         </div>

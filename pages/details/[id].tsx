@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Head from "next/head";
 import AOS from "aos";
 import Footer from "../../components/organisme/Footer";
 import Navbar from "../../components/organisme/Navbar";
@@ -31,6 +32,19 @@ export default function Detail({
 
   return (
     <>
+      <Head>
+        <title>details | paygames</title>
+        <meta
+          name="description"
+          content="menyediakan cara untuk membantu player juara dengan TopUp dikami dengan mudah dan cepat"
+        />
+        <meta property="og:title" content="paygames" />
+        <meta
+          property="og:description"
+          content="menyediakan cara untuk membantu player juara dengan TopUp dikami dengan mudah dan cepat"
+        />
+        <link rel="icon" href="/icon/logo.png" />
+      </Head>
       <section style={{ backgroundColor: "#030306" }}>
         <Navbar />
         <section className="detail pt-lg-60 pb-50">

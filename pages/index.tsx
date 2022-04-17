@@ -1,6 +1,6 @@
 import Aos from "aos";
 import Head from "next/head";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FeuturedGame from "../components/organisme/FeuturedGame";
 import Footer from "../components/organisme/Footer";
 import MainBanner from "../components/organisme/MainBanner";
@@ -10,39 +10,52 @@ import Story from "../components/organisme/Story";
 import TransactionStep from "../components/organisme/TransactionsStep";
 import { getFeatureGame } from "../services/player";
 import { GameItemTypes } from "../services/data-types";
+import _offline from "./_offline";
+import SplashScreen from "../components/atoms/Splash-Screen";
 
 interface HomeProps {
   data: GameItemTypes[];
 }
 
 export default function Home({ data }: HomeProps) {
+  const [splashScreen, setSplashScreen] = useState(true);
+
   useEffect(() => {
     Aos.init();
+    setTimeout(() => {
+      setSplashScreen(false);
+    }, 1500);
   }, []);
 
   return (
     <>
       <Head>
-        <title>Home | Luxming</title>
+        <title>home | paygames</title>
         <meta
           name="description"
           content="menyediakan cara untuk membantu player juara dengan TopUp dikami dengan mudah dan cepat"
         />
-        <meta property="og:title" content="Luxming" />
+        <meta property="og:title" content="paygames" />
         <meta
           property="og:description"
           content="menyediakan cara untuk membantu player juara dengan TopUp dikami dengan mudah dan cepat"
         />
+        <link rel="icon" href="/icon/logo.png" />
       </Head>
-      <section style={{ backgroundColor: "#030306" }}>
-        <Navbar />
-        <MainBanner />
-        <TransactionStep />
-        <FeuturedGame gameList={data} />
-        <Reached />
-        <Story />
-        <Footer />
-      </section>
+
+      {splashScreen === true ? (
+        <SplashScreen />
+      ) : (
+        <section style={{ backgroundColor: "#030306" }}>
+          <Navbar />
+          <MainBanner />
+          <TransactionStep />
+          <FeuturedGame gameList={data} />
+          <Reached />
+          <Story />
+          <Footer />
+        </section>
+      )}
     </>
   );
 }

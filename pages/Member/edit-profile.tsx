@@ -1,4 +1,5 @@
 import Cookies from "js-cookie";
+import Head from "next/head";
 import jwtDecode from "jwt-decode";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -73,6 +74,19 @@ export default function EditProfile() {
   };
   return (
     <>
+      <Head>
+        <title>settings | paygames</title>
+        <meta
+          name="description"
+          content="menyediakan cara untuk membantu player juara dengan TopUp dikami dengan mudah dan cepat"
+        />
+        <meta property="og:title" content="paygames" />
+        <meta
+          property="og:description"
+          content="menyediakan cara untuk membantu player juara dengan TopUp dikami dengan mudah dan cepat"
+        />
+        <link rel="icon" href="/icon/logo.png" />
+      </Head>
       <SideBar activeMenu="settings" />
       <section className="edit-profile overflow-auto">
         <main className="main-wrapper">
