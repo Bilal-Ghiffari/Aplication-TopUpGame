@@ -3,7 +3,7 @@ export default () => {
     <section>
       <div className="color-palette-ranting-2 border-start border border-warning p-4">
         <div className="d-flex">
-          <div className="flex-shrink-0">
+          <div className="flex-flex-shrink-0">
             <svg
               className="color-palette-ranting-22"
               xmlns="http://www.w3.org/2000/svg"

@@ -182,32 +182,6 @@
     height: auto;
 }
 
-.cart {
-    min-height: 100vh;
-}
-
-.cart-title {
-    position: absolute;
-    color: white;
-    top: 7rem;
-    left: 0;
-    right: 0;
-    font-size: 1.4rem;
-}
-
-.cart-thumbnail {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-}
-
-.cart-thumbnail .images {
-    margin-top: 9.4rem;
-    position: relative;
-}
-
-
 
 /*  */
 

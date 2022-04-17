@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Auth from "./Auth";
 import LinkMenu from "./menu";
 import ToggleMenu from "./ToggleMenu";
@@ -10,7 +11,7 @@ export default function Navbar() {
         <div className="container-fluid">
           <Link href="/">
             <a className="navbar-brand">
-              <img src="/icon/logo.svg" width={60} height={60} />
+              <Image src="/icon/logo.svg" width={60} height={60} />
             </a>
           </Link>
           <ToggleMenu />
