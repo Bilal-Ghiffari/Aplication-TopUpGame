@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import { HistoryTransactionTypes } from "../../../services/data-types";
 import Row from "./Row";
@@ -11,6 +12,7 @@ export default function TransactionsContentDetails(
   props: TransactionsContentDetailsProps
 ) {
   const { data } = props;
+  const router = useRouter();
   const IMG = process.env.NEXT_PUBLIC_IMG;
   return (
     <main className="main-wrapper">
@@ -85,13 +87,13 @@ export default function TransactionsContentDetails(
                 />
               </div>
               <div className="d-md-block d-flex flex-column w-100">
-                <a
+                <button
                   className="btn btn-whatsapp rounded-pill fw-medium text-white border-0 text-lg"
-                  href="#"
                   role="button"
+                  onClick={() => router.back()}
                 >
-                  WhatsApp ke Admin
-                </a>
+                  Back
+                </button>
               </div>
             </section>
           </div>

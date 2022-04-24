@@ -1,7 +1,7 @@
+import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import Head from "next/head";
 import jwtDecode from "jwt-decode";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Input from "../../components/atoms/Input";
@@ -10,6 +10,7 @@ import { JwtPayloadTypes } from "../../services/data-types";
 import { getMemberEditProfile } from "../../services/member";
 
 export default function EditProfile() {
+  const router = useRouter();
   const [user, setUser] = useState({
     nama: "",
     email: "",
@@ -18,7 +19,8 @@ export default function EditProfile() {
   });
   // state image
   const [imagePreview, setImagePreview] = useState<any>("/");
-  const router = useRouter();
+  const [disabled, isDisabled] = useState("");
+  const API_IMAGE = process.env.NEXT_PUBLIC_IMG;
 
   useEffect(() => {
     const token = Cookies.get("tkn");
@@ -29,6 +31,10 @@ export default function EditProfile() {
 
       setUser(userFromPayload);
     }
+  }, []);
+
+  useEffect(() => {
+    router.prefetch("/sign-in");
   }, []);
 
   const setName = (event: any) => {
@@ -72,6 +78,7 @@ export default function EditProfile() {
       router.push("/sign-in");
     }
   };
+
   return (
     <>
       <Head>
@@ -99,7 +106,7 @@ export default function EditProfile() {
                     <label htmlFor="avatar">
                       {imagePreview === "/" ? (
                         <img
-                          src={user.avatar}
+                          src={`${API_IMAGE}/${user.avatar}`}
                           width="90"
                           height="90"
                           alt=""
@@ -150,7 +157,7 @@ export default function EditProfile() {
                 <div className="button-group d-flex flex-column pt-50">
                   <button
                     type="button"
-                    className="btn btn-save fw-medium text-lg text-white rounded-pill"
+                    className={`btn btn-save fw-medium text-lg text-white rounded-pill ${disabled}`}
                     onClick={onSubmit}
                   >
                     Save My Profile

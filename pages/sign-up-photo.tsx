@@ -65,6 +65,10 @@ export default function SignUpPhoto() {
     }
   };
 
+  useEffect(() => {
+    router.prefetch("/sign-up-success");
+  }, []);
+
   return (
     <>
       <Head>

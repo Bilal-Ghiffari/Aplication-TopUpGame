@@ -15,13 +15,14 @@ export default function ItemStory() {
           <br className="d-sm-block d-none" /> pemenang sejati
         </p>
         <div className="d-md-block d-flex flex-column w-100">
-          <a
+          {/* <a
             className="btn btn-read text-lg rounded-pill text-white"
             href="#"
             role="button"
           >
             Read Story
-          </a>
+          </a> */}
+          <button className="btn-readStory">Read Story</button>
         </div>
       </div>
     </div>

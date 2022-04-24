@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Cookies from "js-cookie";
 import { GameItemTypes } from "../../../services/data-types";
 
 interface nameBreadcrumb {
@@ -10,13 +11,15 @@ export function BreadCrumbDetailsItem({
 }: nameBreadcrumb) {
   function handleRemoveItem() {
     localStorage.removeItem("data-item");
+    Cookies.remove("checkItem");
   }
+
   return (
     <div>
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
-            <Link href="/">
+            <Link href="/" replace>
               <a
                 className="text-decoration-none fs-5 color-palette-5"
                 onClick={handleRemoveItem}
@@ -26,7 +29,7 @@ export function BreadCrumbDetailsItem({
             </Link>
           </li>
           <li className="breadcrumb-item">
-            <Link href="/404">
+            <Link href="/404" replace>
               <a className="text-decoration-none fs-5 color-palette-5">
                 Details
               </a>

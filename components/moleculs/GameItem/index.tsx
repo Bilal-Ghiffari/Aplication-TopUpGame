@@ -13,7 +13,7 @@ export default function GameItem(props: GameItemProps) {
 
   return (
     <div className="featured-game-card position-relative">
-      <Link href={`/details/${id}`}>
+      <Link href={`/details/[id]`} as={`/details/${id}`} replace>
         <a>
           <div className="blur-sharp">
             <Image

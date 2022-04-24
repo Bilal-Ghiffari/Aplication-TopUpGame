@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import { JwtPayloadTypes } from "../../../services/data-types";
 
 export default function Profile() {
+  const API_IMAGE = process.env.NEXT_PUBLIC_IMG;
   const [user, setUser] = useState({
     avatar: "",
     nama: "",
@@ -16,22 +17,20 @@ export default function Profile() {
       const jwtToken = atob(token);
       const payload: JwtPayloadTypes = jwtDecode(jwtToken);
       const userFromPayload = payload.player;
-      const Profile = process.env.NEXT_PUBLIC_IMG;
-      user.avatar = `${Profile}/${userFromPayload.avatar}`;
-      setUser(user);
+      setUser(userFromPayload);
     }
   }, []);
   return (
     <div className="user text-center pb-50 pe-30">
       <img
-        src={user.avatar}
+        src={`${API_IMAGE}/${user.avatar}`}
         width={90}
         height={90}
-        className="img-fluid mb-20"
+        className="img-fluid mb-20 overflow-hidden"
         style={{ borderRadius: "100%" }}
       />
-      <h2 className="fw-bold text-xl color-palette-1 m-0">{user.nama}</h2>
-      <p className="color-palette-2 m-0">{user.email}</p>
+      <h2 className="fw-bold text-xl color-palette-2 m-0">{user.nama}</h2>
+      {/* <p className="color-palette-2 m-0">{user.email}</p> */}
     </div>
   );
 }

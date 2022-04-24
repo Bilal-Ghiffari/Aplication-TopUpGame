@@ -65,7 +65,7 @@ export async function getServerSideProps({ req }: GetServerSideProps) {
   } else {
     if (!checktopup && !checkItem) {
       return {
-        redirect: { destination: "/validationCheckout", permanent: false },
+        redirect: { destination: "/404-checkout", permanent: false },
       };
     }
   }

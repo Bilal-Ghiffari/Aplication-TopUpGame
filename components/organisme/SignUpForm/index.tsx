@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Cookies from "js-cookie";
 import cx from "classnames";
 import { useRouter } from "next/router";
@@ -75,10 +76,15 @@ export default function SinUpForm() {
       } else {
         localStorage.setItem("user-form", JSON.stringify(useForm));
         Cookies.set("userForm", JSON.stringify(useForm));
-        router.push("/sign-up-photo");
+        router.replace("/sign-up-photo");
       }
     }
   };
+
+  useEffect(() => {
+    router.prefetch("/sign-up-photo");
+  }, []);
+
   return (
     <>
       <h2 className="text-4xl fw-bold color-palette-8 mb-10">Sign Up</h2>
@@ -158,13 +164,11 @@ export default function SinUpForm() {
         >
           Continue
         </button>
-        <a
-          className="btn btn-sign-in fw-medium text-lg color-palette-1 rounded-pill"
-          href="/sign-in"
-          role="button"
-        >
-          Sign In
-        </a>
+        <Link href="/sign-in" replace>
+          <a className="btn btn-sign-in fw-medium text-lg color-palette-1 rounded-pill">
+            Sign In
+          </a>
+        </Link>
       </div>
     </>
   );

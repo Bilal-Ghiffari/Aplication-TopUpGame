@@ -9,10 +9,15 @@ import { getMemberOverview } from "../../../services/member";
 import SideBar from "../SideBar";
 import Category from "./Category";
 import TableRow from "./TableRow";
+import {
+  SkeletonLoadingCategory,
+  SkeletonTransactions,
+} from "../../atoms/Loading/Skeleton";
 
 export default function OverviewContent() {
   const [count, setCount] = useState([]);
   const [history, setHistory] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getMemberOverviewApi = useCallback(async () => {
     const response = await getMemberOverview();
@@ -25,6 +30,9 @@ export default function OverviewContent() {
   }, []);
 
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(!false);
+    }, 2000);
     getMemberOverviewApi();
   }, []);
 
@@ -54,16 +62,20 @@ export default function OverviewContent() {
             </p>
             <div className="main-content">
               <div className="row">
-                {count.map((item: TopUpCategoryTypes) => (
-                  <Category
-                    key={item._id}
-                    icon="ic-desktop"
-                    nominal={item.value}
-                  >
-                    Game
-                    <br /> {item.name}
-                  </Category>
-                ))}
+                {isLoading === false ? (
+                  <SkeletonLoadingCategory />
+                ) : (
+                  count.map((item: TopUpCategoryTypes) => (
+                    <Category
+                      key={item._id}
+                      icon="ic-desktop"
+                      nominal={item.value}
+                    >
+                      Game
+                      <br /> {item.name}
+                    </Category>
+                  ))
+                )}
               </div>
             </div>
           </div>
@@ -90,17 +102,21 @@ export default function OverviewContent() {
                   </tr>
                 </thead>
                 <tbody>
-                  {history.map((item: HistoryTransactionTypes) => (
-                    <TableRow
-                      key={item._id}
-                      img={`${IMG}/${item.historyVoucherTopup.thumbnail}`}
-                      title={item.historyVoucherTopup.gameName}
-                      category={item.category.name}
-                      item={`${item.historyVoucherTopup.coinQuantity} ${item.historyVoucherTopup.coinName}`}
-                      price={item.value}
-                      status={item.status}
-                    />
-                  ))}
+                  {isLoading === false ? (
+                    <SkeletonTransactions />
+                  ) : (
+                    history.map((item: HistoryTransactionTypes) => (
+                      <TableRow
+                        key={item._id}
+                        img={`${IMG}/${item.historyVoucherTopup.thumbnail}`}
+                        title={item.historyVoucherTopup.gameName}
+                        category={item.category.name}
+                        item={`${item.historyVoucherTopup.coinQuantity} ${item.historyVoucherTopup.coinName}`}
+                        price={item.value}
+                        status={item.status}
+                      />
+                    ))
+                  )}
                 </tbody>
               </table>
             </div>

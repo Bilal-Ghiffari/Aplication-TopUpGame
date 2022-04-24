@@ -58,6 +58,14 @@ export default function SignInForm() {
     }
   };
 
+  useEffect(() => {
+    if (payload) {
+      router.prefetch(`/details/${payload._id}`);
+    } else {
+      router.prefetch("/");
+    }
+  }, []);
+
   return (
     <>
       <h2 className="text-4xl fw-bold color-palette-8 mb-10">Sign In</h2>
@@ -96,7 +104,7 @@ export default function SignInForm() {
         >
           Continue to Sign In
         </button>
-        <Link href="/sign-up">
+        <Link href="/sign-up" replace>
           <a className="btn btn-sign-up fw-medium text-lg color-palette-1 rounded-pill">
             Sign Up
           </a>

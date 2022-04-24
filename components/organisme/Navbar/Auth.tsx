@@ -63,19 +63,19 @@ export default function Auth() {
             aria-labelledby="dropdownMenuLink"
           >
             <li>
-              <Link href="/Member">
+              <Link href="/Member" replace>
                 <a className="dropdown-item text-lg color-palette-2">
                   My Profile
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/" replace>
                 <a className="dropdown-item text-lg color-palette-2">Wallet</a>
               </Link>
             </li>
             <li>
-              <Link href="/Member/edit-profile">
+              <Link href="/Member/edit-profile" replace>
                 <a className="dropdown-item text-lg color-palette-2">
                   Account Settings
                 </a>
@@ -92,12 +92,15 @@ export default function Auth() {
   return (
     <li className="nav-item navbar-light my-auto">
       <Link href="/sign-in">
-        <a
+        {/* <a
           className="btn btn-sign-in d-flex justify-content-center ms-lg-2 rounded-pill"
           role="button"
         >
           Sign In
-        </a>
+        </a> */}
+        <div className="main_div d-flex justify-content-center ms-lg-3">
+          <button className="">Sign up</button>
+        </div>
       </Link>
     </li>
   );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { setCheckout } from "../../../../services/player";
@@ -6,6 +7,8 @@ import { setCheckout } from "../../../../services/player";
 interface CheckoutConfirmationTypes {
   bankAccountName: string;
 }
+
+// {/*  */}
 
 export default function CheckoutConfirmation() {
   const [checkBox, setCheckBox] = useState(false);
@@ -26,6 +29,8 @@ export default function CheckoutConfirmation() {
   function handleCanclePayment() {
     localStorage.removeItem("top-up");
     localStorage.removeItem("data-item");
+    Cookies.remove("checktopup");
+    Cookies.remove("checkItem");
     router.push("/");
   }
 
@@ -56,25 +61,32 @@ export default function CheckoutConfirmation() {
         toast.success("Berhasil Checkout");
         localStorage.removeItem("top-up");
         localStorage.removeItem("data-item");
+        Cookies.remove("checktopup");
+        Cookies.remove("checkItem");
         router.push("/complete-checkout");
       }
     }
   };
   return (
     <>
-      <label className="checkbox-label text-lg color-palette-1">
-        I have transferred the money
+      <div className="cntr">
         <input
           type="checkbox"
           checked={checkBox}
+          id="cbx"
+          className="hidden-xs-up"
           onChange={() => setCheckBox(!checkBox)}
         />
-        <span className="checkmark"></span>
-      </label>
+        <label className="cbx mb-10" htmlFor="cbx">
+          {/* <span className="checkmark"></span> */}
+        </label>
+        <span>I have transferred the money</span>
+      </div>
 
       <div className="d-md-block d-flex flex-column w-100 pt-50">
         <button
-          className="btn btn-confirm-payment rounded-pill fw-medium text-white border-0 text-lg"
+          // className="btn btn-confirm-payment rounded-pill fw-medium text-white border-0 text-lg"
+          className="btn-readStory"
           type="button"
           onClick={onSubmit}
         >

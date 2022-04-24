@@ -65,6 +65,11 @@ export default function TopUpForm({ nominals, payments }: TopUpFormProps) {
       localStorage.setItem("top-up", JSON.stringify(dataTopUp));
     }
   };
+
+  useEffect(() => {
+    router.prefetch("/checkout");
+  }, []);
+
   return (
     <form action="/checkout" method="POST">
       <div className="pt-md-50 pt-30">
@@ -144,13 +149,9 @@ export default function TopUpForm({ nominals, payments }: TopUpFormProps) {
           onChange={(event) => setBankAccountName(event.target.value)}
         />
       </div>
-      <div className="d-sm-block d-flex flex-column w-100">
-        <button
-          type="button"
-          className="btn btn-submit fw-medium text-white text-lg action"
-          onClick={onSubmit}
-        >
-          <span>Continue</span>
+      <div className="">
+        <button type="button" className="btn-readStory" onClick={onSubmit}>
+          Continue
         </button>
       </div>
     </form>
