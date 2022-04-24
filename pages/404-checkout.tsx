@@ -16,6 +16,7 @@ export default function Chekout404() {
             src="/images/image-404.png"
             height={612}
             width={612}
+            quality={100}
             alt="Silahkan daftar terlebih dahulu"
           />
         </div>

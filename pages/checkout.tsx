@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import CheckoutConfirmation from "../components/organisme/Checkout/CheckoutConfrim";
 import CheckoutDetails from "../components/organisme/Checkout/CheckoutDetails";
 import CheckoutItem from "../components/organisme/Checkout/CheckoutItem";
@@ -23,7 +24,12 @@ export default function checkOut() {
         <div className="container-fluid">
           <div className="logo text-md-center text-start pb-50">
             <a className="" href="#">
-              <img src="/icon/logo.svg" width={60} height={60} alt="" />
+              <Image
+                src="/icon/logo.svg"
+                width={60}
+                height={60}
+                alt="logo-icon"
+              />
             </a>
           </div>
           <div className="title-text pt-md-50 pt-0">

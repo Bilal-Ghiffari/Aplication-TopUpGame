@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import cx from "classnames";
 interface MenuItemsProps {
   title: string;
@@ -35,7 +36,13 @@ export default function MenuItems(props: MenuItemsProps) {
   return (
     <div className={classNames} onClick={onClick}>
       <div className="me-3">
-        <img src={`/icon/${icon}.svg`} width={25} height={25} alt="" />
+        <Image
+          src={`/icon/${icon}.svg`}
+          width={25}
+          height={25}
+          quality={100}
+          alt="icon-sidebar"
+        />
         <div>
           <span className={classStatus}></span>
         </div>

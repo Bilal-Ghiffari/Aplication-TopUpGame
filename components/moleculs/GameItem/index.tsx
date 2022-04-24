@@ -21,6 +21,7 @@ export default function GameItem(props: GameItemProps) {
               src={thumbnail}
               width={205}
               height={270}
+              quality={100}
               alt="thumnail"
               layout="fixed"
             />

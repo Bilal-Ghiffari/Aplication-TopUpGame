@@ -37,10 +37,11 @@ export default function TopUpItem({ type, detail }: TopUpItemProps) {
       <div className="col-md-12 col-4 images" data-aos={"zoom-in"}>
         <Image
           src={`${IMG}/${detail.thumbnail}`}
-          width="280"
-          height="380"
+          width={280}
+          height={380}
+          quality={100}
           className="img-fluid"
-          alt=""
+          alt="details-image"
         />
       </div>
 

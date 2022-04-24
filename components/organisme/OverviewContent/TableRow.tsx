@@ -1,3 +1,4 @@
+import Image from "next/image";
 import cx from "classnames";
 import NumberFormat from "react-number-format";
 
@@ -27,7 +28,7 @@ export default function TableRow(props: TableRowProps) {
           src={img}
           width={80}
           height={60}
-          alt=""
+          alt="overview-image"
         />
         <div className="game-title-header">
           <p className="game-title fw-medium text-start color-palette-1">

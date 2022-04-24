@@ -13,7 +13,7 @@ export default function StepItem(props: StepItemProps) {
         <img
           src={`/icon/${icon}.svg`}
           className="mb-30"
-          alt=""
+          alt="step-item"
           width={80}
           height={80}
         />

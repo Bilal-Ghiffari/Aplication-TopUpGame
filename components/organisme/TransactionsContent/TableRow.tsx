@@ -28,7 +28,7 @@ export default function TableRow(props: TableRowPropa) {
           src={img}
           width={80}
           height={60}
-          alt=""
+          alt="transactions-image"
         />
         <div className="game-title-header">
           <p className="game-title fw-medium text-start color-palette-1 m-0">

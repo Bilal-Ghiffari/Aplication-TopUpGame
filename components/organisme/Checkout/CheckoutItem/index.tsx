@@ -27,7 +27,7 @@ export default function CheckoutItem() {
             width={263}
             quality={100}
             className="img-fluid"
-            alt=""
+            alt="checkout-image"
           />
         </div>
       </div>

@@ -16,6 +16,7 @@ export default function Custom404() {
             src="/images/image-404.png"
             width={612}
             height={612}
+            quality={100}
             alt="404 Not Found"
           />
         </div>
@@ -29,16 +30,6 @@ export default function Custom404() {
             tidak tersedia pada sistem kami
           </p>
         </div>
-        {/* <div className="button-group d-flex flex-column mx-auto">
-          <Link href="/">
-            <a
-              className="btn btn-homepage fw-medium text-lg text-white rounded-pill"
-              // role="button"
-            >
-              Homepage
-            </a>
-          </Link>
-        </div> */}
       </div>
     </section>
   );

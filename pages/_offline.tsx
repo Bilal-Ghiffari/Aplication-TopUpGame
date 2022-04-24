@@ -16,6 +16,7 @@ export default function OfflineMode() {
             src="/images/connection.png"
             width={230}
             height={212}
+            quality={100}
             alt="404 Not Found"
           />
         </div>

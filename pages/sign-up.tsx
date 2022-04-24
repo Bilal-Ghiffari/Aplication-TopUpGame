@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Head from "next/head";
 import SinUpForm from "../components/organisme/SignUpForm";
 
@@ -25,7 +26,12 @@ export default function SignUp() {
               <div className="pb-50">
                 <Link href="/">
                   <a className="navbar-brand">
-                    <img src="/icon/logo.svg" width={60} height={60} alt="" />
+                    <Image
+                      src="/icon/logo.svg"
+                      width={60}
+                      height={60}
+                      alt="logo-image"
+                    />
                   </a>
                 </Link>
               </div>

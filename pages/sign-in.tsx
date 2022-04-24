@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Head from "next/head";
 import SignInForm from "../components/organisme/SignInForm";
 
@@ -27,11 +28,11 @@ export default function SignIn() {
                   <div className="pb-50">
                     <Link href="/">
                       <a className="navbar-brand">
-                        <img
+                        <Image
                           src="/icon/logo.svg"
                           width={60}
                           height={60}
-                          alt=""
+                          alt="logo-image"
                         />
                       </a>
                     </Link>
@@ -41,12 +42,13 @@ export default function SignIn() {
               </form>
             </div>
             <div className="col-xxl-7 col-lg-6 bg-blue text-center pt-lg-145 pb-lg-145 d-lg-block d-none">
-              <img
-                src="images/Header-9.png"
-                width="502"
-                height="391.21"
+              <Image
+                src="/images/Header-9.png"
+                width={502}
+                height={391.21}
+                quality={100}
                 className="img-fluid pb-50"
-                alt=""
+                alt="image-sign-in"
               />
               <h2 className="text-4xl fw-bold text-white mb-30">
                 Win the battle.

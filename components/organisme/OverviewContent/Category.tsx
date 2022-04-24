@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Image from "next/image";
 import NumberFormat from "react-number-format";
 
 interface CategoryProps {
@@ -13,7 +14,13 @@ export default function Category(props: CategoryProps) {
     <div className="col-lg-4 ps-15 pe-15 pb-lg-0 pb-4">
       <div className="categories-card">
         <div className="d-flex align-items-center mb-24">
-          <img src={`/icon/${icon}.svg`} width={60} height={60} alt="" />
+          <Image
+            src={`/icon/${icon}.svg`}
+            width={60}
+            height={60}
+            quality={100}
+            alt="icon-topUp-category"
+          />
           <p className="color-palette-1 mb-0 ms-12">{children}</p>
         </div>
         <div>
