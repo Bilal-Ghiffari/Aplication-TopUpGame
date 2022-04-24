@@ -31,7 +31,7 @@ export default function CheckoutConfirmation() {
     localStorage.removeItem("data-item");
     Cookies.remove("checktopup");
     Cookies.remove("checkItem");
-    router.push("/");
+    router.replace("/");
   }
 
   const onSubmit = async () => {
@@ -63,10 +63,15 @@ export default function CheckoutConfirmation() {
         localStorage.removeItem("data-item");
         Cookies.remove("checktopup");
         Cookies.remove("checkItem");
-        router.push("/complete-checkout");
+        router.replace("/complete-checkout");
       }
     }
   };
+
+  useEffect(() => {
+    router.prefetch("/complete-checkout");
+  }, []);
+
   return (
     <>
       <div className="cntr">

@@ -66,7 +66,7 @@ export default function SideFooter() {
             Be The Winner
           </p>
         </div>
-        <Link href="/">
+        <Link href="/" replace>
           <a className="btn btn-get-started w-100 fw-medium text-xs text-center text-white rounded-pill">
             Get Started
           </a>

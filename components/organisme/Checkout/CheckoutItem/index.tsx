@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 export default function CheckoutItem() {
@@ -20,8 +21,11 @@ export default function CheckoutItem() {
     <div className="game-checkout d-flex flex-row align-items-center pt-md-50 pb-md-50 pt-30 pb-30">
       <div className="pe-4">
         <div className="cropped">
-          <img
+          <Image
             src={`${IMG}/${dataItem.thumbnail}`}
+            height={300}
+            width={263}
+            quality={100}
             className="img-fluid"
             alt=""
           />

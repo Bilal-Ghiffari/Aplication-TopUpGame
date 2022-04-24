@@ -61,7 +61,7 @@ export default function TableRow(props: TableRowPropa) {
         </div>
       </td>
       <td>
-        <Link href={`/Member/transactions/${id}`}>
+        <Link href={`/Member/transactions/${id}`} replace>
           <a className="btn btn-status rounded-pill text-sm">Details</a>
         </Link>
       </td>

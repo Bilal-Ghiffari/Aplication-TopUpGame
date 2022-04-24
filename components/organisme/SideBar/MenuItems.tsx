@@ -44,7 +44,7 @@ export default function MenuItems(props: MenuItemsProps) {
         {onClick ? (
           <a className="text-lg text-decoration-none">{title}</a>
         ) : (
-          <Link href={href!}>
+          <Link href={href!} replace>
             <a className="text-lg text-decoration-none">{title}</a>
           </Link>
         )}

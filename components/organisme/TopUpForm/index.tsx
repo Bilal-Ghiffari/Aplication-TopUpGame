@@ -61,7 +61,7 @@ export default function TopUpForm({ nominals, payments }: TopUpFormProps) {
         nominalItem,
         paymentItem,
       };
-      router.push("/checkout");
+      router.replace("/checkout");
       localStorage.setItem("top-up", JSON.stringify(dataTopUp));
     }
   };

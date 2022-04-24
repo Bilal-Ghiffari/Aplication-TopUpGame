@@ -261,7 +261,7 @@ export default function CompleteCheckout() {
           </p>
         </div>
         <div className="button-group d-flex flex-column mx-auto">
-          <Link href="/Member">
+          <Link href="/Member" replace>
             <a
               className="btn btn-dashboard fw-medium text-lg text-white rounded-pill mb-16"
               role="button"

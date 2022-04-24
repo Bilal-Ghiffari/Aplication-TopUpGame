@@ -13,7 +13,7 @@ export default function SideBar({ activeMenu }: SideBarProps) {
 
   const onLogout = () => {
     Cookies.remove("tkn");
-    router.push("/sign-in");
+    router.replace("/sign-in");
   };
 
   return (
