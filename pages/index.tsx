@@ -10,7 +10,6 @@ import Story from "../components/organisme/Story";
 import TransactionStep from "../components/organisme/TransactionsStep";
 import { getFeatureGame } from "../services/player";
 import { GameItemTypes } from "../services/data-types";
-import _offline from "./_offline";
 import SplashScreen from "../components/atoms/Splash-Screen";
 
 interface HomeProps {
@@ -42,8 +41,7 @@ export default function Home({ data }: HomeProps) {
         />
         <link rel="icon" href="/icon/logo.png" />
       </Head>
-      <_offline />
-      {/* {splashScreen === true ? (
+      {splashScreen === true ? (
         <SplashScreen />
       ) : (
         <section style={{ backgroundColor: "#030306" }}>
@@ -55,7 +53,7 @@ export default function Home({ data }: HomeProps) {
           <Story />
           <Footer />
         </section>
-      )} */}
+      )}
     </>
   );
 }
