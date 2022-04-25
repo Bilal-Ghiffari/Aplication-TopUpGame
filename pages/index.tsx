@@ -42,8 +42,8 @@ export default function Home({ data }: HomeProps) {
         />
         <link rel="icon" href="/icon/logo.png" />
       </Head>
-
-      {splashScreen === true ? (
+      <_offline />
+      {/* {splashScreen === true ? (
         <SplashScreen />
       ) : (
         <section style={{ backgroundColor: "#030306" }}>
@@ -55,7 +55,7 @@ export default function Home({ data }: HomeProps) {
           <Story />
           <Footer />
         </section>
-      )}
+      )} */}
     </>
   );
 }

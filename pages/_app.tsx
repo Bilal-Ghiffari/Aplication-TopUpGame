@@ -43,7 +43,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
           crossOrigin="anonymous"
         />
-
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
