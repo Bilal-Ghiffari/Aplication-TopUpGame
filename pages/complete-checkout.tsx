@@ -1,8 +1,29 @@
+import { useState, useRef, useEffect } from "react";
+import Cookies from "js-cookie";
+import { CheckoutTypes } from "../services/data-types";
 import Link from "next/link";
+import Confetti from "react-confetti";
 
 export default function CompleteCheckout() {
+  const [height, setHeight] = useState<any>(null);
+  const [width, setWidth] = useState<any>(null);
+
+  const conffetiRef = useRef<any>(null);
+
+  useEffect(() => {
+    setHeight(conffetiRef.current && conffetiRef.current.clientHeight);
+    setWidth(conffetiRef.current && conffetiRef.current.clientWidth);
+  }, []);
+
+  function handleRemoveCookies() {
+    Cookies.remove("checktopup");
+  }
+
   return (
-    <section className="complete-checkout mx-auto pt-lg-145 pb-lg-145 pt-100 pb-80">
+    <section
+      className="complete-checkout mx-auto pt-lg-145 pb-lg-145 pt-100 pb-80"
+      ref={conffetiRef}
+    >
       <div className="container-fluid">
         <div className="text-center">
           <svg
@@ -265,6 +286,7 @@ export default function CompleteCheckout() {
             <a
               className="btn btn-dashboard fw-medium text-lg text-white rounded-pill mb-16"
               role="button"
+              onClick={handleRemoveCookies}
             >
               My Dashboard
             </a>
@@ -278,6 +300,42 @@ export default function CompleteCheckout() {
           </a>
         </div>
       </div>
+      <Confetti numberOfPieces={150} height={height} width={width} />
     </section>
   );
+}
+
+interface getServerSideType {
+  req: {
+    cookies: {
+      checktopup: CheckoutTypes;
+      tkn: string;
+    };
+  };
+}
+
+export async function getServerSideProps({ req }: getServerSideType) {
+  const { checktopup, tkn } = req.cookies;
+
+  if (!tkn && tkn) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  if (!checktopup) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 }

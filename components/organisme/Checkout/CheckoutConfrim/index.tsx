@@ -61,7 +61,6 @@ export default function CheckoutConfirmation() {
         toast.success("Berhasil Checkout");
         localStorage.removeItem("top-up");
         localStorage.removeItem("data-item");
-        Cookies.remove("checktopup");
         Cookies.remove("checkItem");
         router.replace("/complete-checkout");
       }
